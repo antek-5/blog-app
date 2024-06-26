@@ -1,0 +1,49 @@
+
+
+.navBarClass {
+    width: 100vw;
+
+    .navBarInnerContainer {
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        background-color: lightblue;
+        border-radius: 5px;
+
+
+
+
+        .toggleClass {
+
+            
+
+        }
+
+        .collapseClass {
+        
+            div {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+
+                div {
+                    a {
+                        padding: 0 5px;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+
+
+    
+
+}

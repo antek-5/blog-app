@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+import Post from "./components/pages/Post/Post";
+import PostsList from "./components/pages/PostsList/PostsList";
+import EditPost from "./components/pages/EditPost/EditPost";
+import AddPost from "./components/pages/AddPost/AddPost";
+import About from "./components/pages/About/About";
+import { Container } from "react-bootstrap";
+import Footer from "./components/views/Footer/Footer";
+import Header from "./components/views/Header/Header";
+import styles from "./styles/App.module.scss"
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Container className={styles.AppClass}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<PostsList />} />
+          <Route path="/post/:id" element={<Post />} />
+          <Route path="/post/add" element={<AddPost />} />
+          <Route path="/post/edit/:id" element={<EditPost />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </Container>
+      
+
+    </main>
   );
-}
+
+};
+
+
 
 export default App;
+
+
+
+// return (
+//   <main>
+//     <NavBar />
+//     <Container>
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+        
+//       </Routes>
+//     </Container>
+//   </main>
+// );

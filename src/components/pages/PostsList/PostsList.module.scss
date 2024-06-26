@@ -1,0 +1,72 @@
+
+
+
+.postListContainer {
+
+    display: flex;
+    flex-direction: column;
+    
+    margin-bottom: 30px;
+
+    
+
+
+    h1 {
+        font-size: x-large;
+        margin: 10px 0;
+        font-weight: lighter;
+    }
+
+    .postListInner {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        
+
+        
+
+        .postCard {
+
+            width: 350px;
+            background-color: beige;
+
+            margin: 20px;
+            padding: 15px;
+
+            border-width: 50px;
+            border-color: black;
+            border-radius: 5px;
+
+            h3 {
+                font-size: x-large;
+                font-weight: lighter;
+                margin: 5px 0;
+            }
+
+            h4 {
+                font-size: small;
+
+                .firstWord {
+                    font-weight: bold;
+                }
+            }
+
+            p {
+                font-size: small;
+            }
+
+            .buttonBS {
+                background-color: lightblue;
+                color: darkslategray;
+                border: none;
+            }
+
+
+        }
+
+    }
+}
