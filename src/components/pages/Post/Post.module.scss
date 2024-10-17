@@ -1,0 +1,56 @@
+
+
+.postContainer {
+
+    margin-bottom: 50px;
+
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #E5F6DF;
+    padding: 13px;
+    border-radius: 10px;
+    
+    width: 80%;
+
+    .postHeader {
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        margin-bottom: 30px;
+
+        .postButtonsContainer {
+
+            .buttonBS {
+                margin: 0 3px;
+            }
+
+        }
+
+    }
+
+    .postData {
+        width: 100%;
+
+        h4 {
+            font-weight: lighter;
+
+            .bolder {
+                font-weight: bolder;
+            }
+        }
+    }
+
+    .postContent {
+        width: 100%;
+    }
+
+
+
+}

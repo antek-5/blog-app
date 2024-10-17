@@ -18,7 +18,7 @@ const PostList = () => {
                         <h4><span className={styles.firstWord}>Author: </span>{post.author}</h4>
                         <h4><span className={styles.firstWord}>Published: </span>{post.publishedDate}</h4>
                         <p>{post.shortDescription}</p>
-                        <Button className={styles.buttonBS} variant="primary" href="/post/:id">Read more</Button>
+                        <Button className={styles.buttonBS} variant="primary" href={"/post/" + post.id}>Read more</Button>
                     </div>
                 )}
             </div>
