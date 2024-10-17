@@ -38,16 +38,3 @@ const App = () => {
 
 export default App;
 
-
-
-// return (
-//   <main>
-//     <NavBar />
-//     <Container>
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-        
-//       </Routes>
-//     </Container>
-//   </main>
-// );
