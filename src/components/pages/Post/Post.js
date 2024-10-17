@@ -1,61 +1,34 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost, getPostById } from "../../../redux/postsRedux";
-import { useParams } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { useParams, Navigate } from "react-router-dom";
+import { Button, Modal } from "react-bootstrap";
 import styles from "./Post.module.scss";
-import { Navigate } from 'react-router-dom';
-import { Modal } from "bootstrap";
 import { useState } from "react";
 
 const Post = () => {
-
     const { id } = useParams();
     const post = useSelector(state => getPostById(state, id));
-
     const dispatch = useDispatch();
 
     const [show, setShow] = useState(false);
-    const handleShow  = () => setShow(true);
+
+    const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
 
     const removePostClick = () => {
         dispatch(deletePost(id));
         handleClose();
-    }
+    };
 
-    
+    if (!post) return <Navigate to="/" />;
 
-    console.log('id', id);
-    console.log('post', post);
-
-    if(!post) return <Navigate to="/" />
-
-    return(
+    return (
         <div className={styles.postContainer}>
-            <div
-                className="modal show"
-                style={{ display: 'block', position: 'initial' }}
-            >
-                <Modal.Dialog>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal title</Modal.Title>
-                    </Modal.Header>
-
-                    <Modal.Body>
-                        <p>Modal body text goes here.</p>
-                    </Modal.Body>
-
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>Close</Button>
-                        <Button variant="primary" onClick={removePostClick}>delete</Button>
-                    </Modal.Footer>
-                </Modal.Dialog>
-            </div>
             <div className={styles.postHeader}>
                 <h3>{post.title}</h3>
                 <div className={styles.postButtonsContainer}>
-                    <Button className={styles.buttonBS} variant="outline-secondary" href={"/post/edit/" + post.id}>edit</Button>
-                    <Button variant="outline-danger" className={styles.buttonBS} onClick={handleShow}>delete</Button>
+                    <Button className={styles.buttonBS} variant="outline-secondary" href={`/post/edit/${post.id}`}>Edit</Button>
+                    <Button variant="outline-danger" className={styles.buttonBS} onClick={handleShow}>Delete</Button>
                 </div>
             </div>
             <div className={styles.postData}>
@@ -66,11 +39,19 @@ const Post = () => {
                 <p>{post.content}</p>
             </div>
 
-                        
-                        
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Deletion</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+                    <Button variant="danger" onClick={removePostClick}>Delete</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
-
-}
+};
 
 export default Post;
