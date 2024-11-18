@@ -10,6 +10,7 @@ const PostList = () => {
     return(
         <div className={styles.postListContainer}>
             <h1>all posts</h1>
+            <Button className={styles.buttonBS} variant="primary" href={"/post/add"}>AddPost</Button>
 
             <div className={styles.postListInner}>
                 {posts.map( post => 

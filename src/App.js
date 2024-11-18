@@ -9,7 +9,6 @@ import { Container } from "react-bootstrap";
 import Footer from "./components/views/Footer/Footer";
 import Header from "./components/views/Header/Header";
 import styles from "./styles/App.module.scss"
-import PageNotFound from "./components/pages/PageNotFound/PageNotFound"
 
 const App = () => {
 
@@ -19,11 +18,12 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<PostsList />} />
+
           <Route path="/post/:id" element={<Post />} />
+
           <Route path="/post/add" element={<AddPost />} />
           <Route path="/post/edit/:id" element={<EditPost />} />
           <Route path="/about" element={<About />} />
-          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
       </Container>
@@ -37,17 +37,3 @@ const App = () => {
 
 
 export default App;
-
-
-
-// return (
-//   <main>
-//     <NavBar />
-//     <Container>
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-        
-//       </Routes>
-//     </Container>
-//   </main>
-// );
